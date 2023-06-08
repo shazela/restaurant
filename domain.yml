@@ -1,0 +1,99 @@
+version: '3.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- affirm
+- bot_challenge
+- deny
+- goodbye
+- greet
+- inform
+- mood_great
+- mood_unhappy
+- request_menu_form
+- see_restaurant_menu
+- stop
+entities:
+- starter_type
+- main_type
+- dessert_type
+forms:
+  menu_form:
+    required_slots:
+    - vegetarian
+    - starter_type
+    - main_type
+    - dessert_type
+slots:
+  dessert_type:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: dessert_type
+  main_type:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: main_type
+  starter_type:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: starter_type
+  vegetarian:
+    type: bool
+    influence_conversation: true
+    mappings:
+    - type: from_intent
+      value: true
+      intent: affirm
+    - type: from_intent
+      value: false
+      intent: deny
+responses:
+  utter_greet:
+  - text: Hey! Welcome to the restaurant.
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_submit:
+  - text: I will now order a dish for you!
+  utter_order_slots:
+  - text: I will order a {starter_type}, {main_type} and {dessert_type}.
+  utter_ask_continue:
+  - text: Are you sure you want to stop the form?
+  utter_ask_starter_type:
+  - text: What starter would you like to order?
+  utter_ask_main_type:
+  - text: What main course would you like to order?
+  utter_ask_dessert_type:
+  - text: What dessert would you like to order?
+
+actions:
+- action_ask_starter_type
+- action_ask_main_type
+- action_ask_dessert_type
+- action_ask_vegetarian
+- utter_order_slots
+- utter_submit
+- utter_greet
+- utter_ask_starter_type
+- utter_ask_continue
+- utter_iamabot
+- utter_goodbye
+- utter_ask_main_type
+- utter_ask_dessert_type
+- validate_menu_form
+

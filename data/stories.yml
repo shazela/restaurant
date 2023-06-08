@@ -1,0 +1,66 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+
+
+- story: interactive_story_2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: see_restaurant_menu 
+  - action: menu_form
+  - active_loop: menu_form
+  - slot_was_set:
+    - requested_slot: vegetarian
+  - slot_was_set:
+    - vegetarian: true
+  - slot_was_set:
+    - requested_slot: starter_type
+  - slot_was_set:
+    - starter_type: true
+  - slot_was_set:
+    - requested_slot: main_type
+  - slot_was_set:
+    - main_type: true
+  - slot_was_set:
+    - requested_slot: dessert_type
+  - slot_was_set:
+    - dessert_type: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_order_slots
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+
