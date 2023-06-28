@@ -18,6 +18,7 @@ nlu:
     - yo
     - hello world
     - hi there
+    - he
 - intent: goodbye
   examples: |
     - cu
@@ -108,12 +109,23 @@ nlu:
 - intent: inform
   examples: |
     - [chicken tikka](starter_type)
-    - give me a [mozerella sticks](starter_type) 
-    - [crispy chicken](starter_type) 
+    - give me a [mozerella sticks](starter_type)
     - [crispy chicken](starter_type)
     - [mozzarella sticks](starter_type)
     - [veggie mix](starter_type)
     - [paneer tikka](starter_type)
-    - [veggie mix](starter_type)
-    - [ice-cream](dessert_type)
-    - [chicken curry](main_type)
+    - [chicken curry](food_type)
+    - [pasta](food_type)
+    - [aloo gobhi](food_type)
+    - [rajma chawal](food_type)
+    - [butter chicken](food_type)
+    - [chicken curry](food_type)
+    - [ice cream](dessert_type)
+    - [rasgulla](dessert_type)
+    - [rasmalai](dessert_type)
+    - [cheesecake](dessert_type)
+    - [eclair](dessert_type)
+    - [crispy chicken](starter_type)
+    - [aloo gobhi](food_type)
+    - [rasgulla](dessert_type)
+ 

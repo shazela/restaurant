@@ -31,7 +31,7 @@ stories:
 
 
 
-- story: interactive_story_2
+- story: story_2
   steps:
   - intent: greet
   - action: utter_greet
@@ -47,9 +47,9 @@ stories:
   - slot_was_set:
     - starter_type: true
   - slot_was_set:
-    - requested_slot: main_type
+    - requested_slot: food_type
   - slot_was_set:
-    - main_type: true
+    - food_type: true
   - slot_was_set:
     - requested_slot: dessert_type
   - slot_was_set:
@@ -57,10 +57,169 @@ stories:
   - slot_was_set:
     - requested_slot: null
   - active_loop: null
-  - action: utter_submit
-  - action: utter_order_slots
+  - action: action_API
+  - action: action_order_slots
   - intent: goodbye
   - action: utter_goodbye
 
 
 
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: see_restaurant_menu
+#   - action: menu_form
+#   - active_loop: menu_form
+#   - slot_was_set:
+#     - requested_slot: vegetarian
+#   - intent: affirm
+#   - slot_was_set:
+#     - vegetarian: true
+#   - action: menu_form
+#   - slot_was_set:
+#     - vegetarian: true
+#   - slot_was_set:
+#     - requested_slot: starter_type
+#   - intent: inform
+#     entities:
+#     - starter_type: mozzarella sticks
+#   - slot_was_set:
+#     - starter_type: mozzarella sticks
+#   - action: menu_form
+#   - slot_was_set:
+#     - starter_type: mozzarella sticks
+#   - slot_was_set:
+#     - requested_slot: food_type
+#   - intent: inform
+#     entities:
+#     - food_type: pasta
+#   - slot_was_set:
+#     - food_type: pasta
+#   - action: menu_form
+#   - slot_was_set:
+#     - food_type: pasta
+#   - slot_was_set:
+#     - requested_slot: dessert_type
+#   - intent: inform
+#     entities:
+#     - dessert_type: ice cream
+#   - slot_was_set:
+#     - dessert_type: ice cream
+#   - action: menu_form
+#   - slot_was_set:
+#     - dessert_type: ice cream
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: utter_submit
+#   - action: utter_order_slots
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: see_restaurant_menu
+#   - action: menu_form
+#   - active_loop: menu_form
+#   - slot_was_set:
+#     - requested_slot: vegetarian
+#   - intent: deny
+#   - slot_was_set:
+#     - vegetarian: false
+#   - action: menu_form
+#   - slot_was_set:
+#     - vegetarian: false
+#   - slot_was_set:
+#     - requested_slot: starter_type
+#   - intent: inform
+#     entities:
+#     - starter_type: chicken tikka
+#   - slot_was_set:
+#     - starter_type: chicken tikka
+#   - action: menu_form
+#   - slot_was_set:
+#     - starter_type: chicken tikka
+#   - slot_was_set:
+#     - requested_slot: food_type
+#   - intent: inform
+#     entities:
+#     - food_type: rajma chawal
+#   - slot_was_set:
+#     - food_type: rajma chawal
+#   - action: menu_form
+#   - slot_was_set:
+#     - food_type: rajma chawal
+#   - slot_was_set:
+#     - requested_slot: dessert_type
+#   - intent: inform
+#     entities:
+#     - dessert_type: cheesecake
+#   - slot_was_set:
+#     - dessert_type: cheesecake
+#   - action: menu_form
+#   - slot_was_set:
+#     - dessert_type: cheesecake
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: utter_submit
+#   - action: utter_order_slots
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: see_restaurant_menu
+#   - action: menu_form
+#   - active_loop: menu_form
+#   - slot_was_set:
+#     - requested_slot: vegetarian
+#   - intent: deny
+#   - slot_was_set:
+#     - vegetarian: false
+#   - action: menu_form
+#   - slot_was_set:
+#     - vegetarian: false
+#   - slot_was_set:
+#     - requested_slot: starter_type
+#   - intent: inform
+#     entities:
+#     - starter_type: crispy chicken
+#   - slot_was_set:
+#     - starter_type: crispy chicken
+#   - action: menu_form
+#   - slot_was_set:
+#     - starter_type: crispy chicken
+#   - slot_was_set:
+#     - requested_slot: food_type
+#   - intent: inform
+#     entities:
+#     - food_type: aloo gobhi
+#   - slot_was_set:
+#     - food_type: aloo gobhi
+#   - action: menu_form
+#   - slot_was_set:
+#     - food_type: aloo gobhi
+#   - slot_was_set:
+#     - requested_slot: dessert_type
+#   - intent: inform
+#     entities:
+#     - dessert_type: rasgulla
+#   - slot_was_set:
+#     - dessert_type: rasgulla
+#   - action: menu_form
+#   - slot_was_set:
+#     - dessert_type: rasgulla
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: utter_submit
+#   - action: utter_order_slots
+#   - intent: goodbye
+#   - action: utter_goodbye

@@ -15,15 +15,15 @@ intents:
 - see_restaurant_menu
 - stop
 entities:
-- starter_type
-- main_type
 - dessert_type
+- starter_type
+- food_type
 forms:
   menu_form:
     required_slots:
     - vegetarian
     - starter_type
-    - main_type
+    - food_type
     - dessert_type
 slots:
   dessert_type:
@@ -32,12 +32,12 @@ slots:
     mappings:
     - type: from_entity
       entity: dessert_type
-  main_type:
+  food_type:
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
-      entity: main_type
+      entity: food_type
   starter_type:
     type: text
     influence_conversation: true
@@ -56,7 +56,8 @@ slots:
       intent: deny
 responses:
   utter_greet:
-  - text: Hey! Welcome to the restaurant.
+  - image: https://i.imgur.com/33QfdBl.png
+    text: 'Hey! Welcome to the restaurant. Here is the entire menu:' 
   utter_cheer_up:
   - image: https://i.imgur.com/nGF1K8f.jpg
     text: 'Here is something to cheer you up:'
@@ -69,9 +70,9 @@ responses:
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
   utter_submit:
-  - text: I will now order a dish for you!
-  utter_order_slots:
-  - text: I will order a {starter_type}, {main_type} and {dessert_type}.
+  - text: I will now submit your order.
+  # utter_order_slots:
+  # - text: I will order {starter_type}, {food_type} and {dessert_type}.
   utter_ask_continue:
   - text: Are you sure you want to stop the form?
   utter_ask_starter_type:
@@ -80,20 +81,20 @@ responses:
   - text: What main course would you like to order?
   utter_ask_dessert_type:
   - text: What dessert would you like to order?
-
+ 
 actions:
+- utter_submit
+- utter_goodbye
+- action_order_slots
+- utter_greet
+- action_ask_food_type
 - action_ask_starter_type
-- action_ask_main_type
 - action_ask_dessert_type
 - action_ask_vegetarian
-- utter_order_slots
-- utter_submit
-- utter_greet
 - utter_ask_starter_type
 - utter_ask_continue
 - utter_iamabot
-- utter_goodbye
-- utter_ask_main_type
+- utter_ask_food_type
 - utter_ask_dessert_type
 - validate_menu_form
-
+- action_API

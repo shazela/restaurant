@@ -1,0 +1,13 @@
+from flask import Flask, jsonify, request,send_file
+
+app = Flask()
+
+if __name__ == '__main__':
+    app.run(debug=True, port=8000)
+
+
+@app.route('/my-first-api', method = ['GET'])
+
+def hello():
+
+    return "Hello world!"
